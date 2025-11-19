@@ -83,10 +83,11 @@ jobs:
       uses: Azure/functions-action@v1
       id: deploy-to-function
       with:
-        app-name: 'VarianceAnalysisBackend'
+        app-name: 'VarianceTimer'
         slot-name: 'Production'
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF5DDEED09454C10B780AED039FADA08 }}
         scm-do-build-during-deployment: true
         enable-oryx-build: true
+
 
