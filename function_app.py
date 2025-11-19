@@ -1,71 +1,71 @@
-import logging
-import re
-from datetime import datetime
-import azure.functions as func
-from pipeline import process_company_pipeline
+# import logging
+# import re
+# from datetime import datetime
+# import azure.functions as func
+# from pipeline import process_company_pipeline
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+# app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# --- Company list (provided by you) ---
-COMPANIES = [
-    "2U", "Aareon", "ABFRL", "Airlife", "Aledade", "AllTech", "Amex", "Ammega Group",
-    "Aquent", "Assa Abloy ANZ", "BCBS_LA", "BenBridge", "Berry Global", "Bluestem Brands",
-    "CMC", "Computacenter UK", "Cornerstone on Demand", "Correct Care Solutions", "CPL Aromas",
-    "CPS Solutions", "Dominos Pizza", "Epicor", "Fountain Tire", "Global Cloud Xchange",
-    "Green Mountain", "Hastings Deering", "ICICI Bank Ltd.", "Informatica India", "ITS Logistics",
-    "J & J", "Kairos", "Kyowa Kirin", "Lakeview Loan Servicing", "Lenskart", "LIMN Labs",
-    "Louis Dreyfus", "Matson Navigation Company", "Microsoft Global Account", "Normet",
-    "Omnicom", "Pennymac", "Republic Bank", "Reynolds Consumer products", "Sony", "Spotlight",
-    "TMS", "Trident USA Health Service", "Truist", "TUI UK", "Ventura Foods", "Western Union",
-    "Widex", "Zurn Industries"
-]
+# # --- Company list (provided by you) ---
+# COMPANIES = [
+#     "2U", "Aareon", "ABFRL", "Airlife", "Aledade", "AllTech", "Amex", "Ammega Group",
+#     "Aquent", "Assa Abloy ANZ", "BCBS_LA", "BenBridge", "Berry Global", "Bluestem Brands",
+#     "CMC", "Computacenter UK", "Cornerstone on Demand", "Correct Care Solutions", "CPL Aromas",
+#     "CPS Solutions", "Dominos Pizza", "Epicor", "Fountain Tire", "Global Cloud Xchange",
+#     "Green Mountain", "Hastings Deering", "ICICI Bank Ltd.", "Informatica India", "ITS Logistics",
+#     "J & J", "Kairos", "Kyowa Kirin", "Lakeview Loan Servicing", "Lenskart", "LIMN Labs",
+#     "Louis Dreyfus", "Matson Navigation Company", "Microsoft Global Account", "Normet",
+#     "Omnicom", "Pennymac", "Republic Bank", "Reynolds Consumer products", "Sony", "Spotlight",
+#     "TMS", "Trident USA Health Service", "Truist", "TUI UK", "Ventura Foods", "Western Union",
+#     "Widex", "Zurn Industries"
+# ]
 
-# --- Scheduling parameters ---
-# We need monthly once per company, within 09:00-18:00 IST, 10-minute gaps.
-# IST = UTC+5:30. 09:00 IST -> 03:30 UTC (start). We'll schedule on day-of-month = 1 (monthly on the 1st).
-START_UTC_HOUR = 3   # 03:30 UTC start hour
-START_UTC_MIN = 30   # 03:30 UTC start minute
-SLOT_GAP_MINUTES = 10
-DAY_OF_MONTH = 19     # monthly on the 1st day
+# # --- Scheduling parameters ---
+# # We need monthly once per company, within 09:00-18:00 IST, 10-minute gaps.
+# # IST = UTC+5:30. 09:00 IST -> 03:30 UTC (start). We'll schedule on day-of-month = 1 (monthly on the 1st).
+# START_UTC_HOUR = 3   # 03:30 UTC start hour
+# START_UTC_MIN = 30   # 03:30 UTC start minute
+# SLOT_GAP_MINUTES = 10
+# DAY_OF_MONTH = 19     # monthly on the 1st day
 
-# Utility to produce sanitized Azure function name
-def _sanitize_function_name(name: str) -> str:
-    sanitized = re.sub(r'\W+', '_', name).strip('_')
-    # Azure function names have reasonable length limits; cut to 64 just in case.
-    return (sanitized[:64] or "company_function").lower()
+# # Utility to produce sanitized Azure function name
+# def _sanitize_function_name(name: str) -> str:
+#     sanitized = re.sub(r'\W+', '_', name).strip('_')
+#     # Azure function names have reasonable length limits; cut to 64 just in case.
+#     return (sanitized[:64] or "company_function").lower()
 
-# Create one scheduled function per company
-for idx, company in enumerate(COMPANIES):
-    # compute UTC minute/hour for this slot
-    total_start_minutes = START_UTC_HOUR * 60 + START_UTC_MIN + idx * SLOT_GAP_MINUTES
-    hour_utc = (total_start_minutes // 60) % 24
-    minute_utc = total_start_minutes % 60
+# # Create one scheduled function per company
+# for idx, company in enumerate(COMPANIES):
+#     # compute UTC minute/hour for this slot
+#     total_start_minutes = START_UTC_HOUR * 60 + START_UTC_MIN + idx * SLOT_GAP_MINUTES
+#     hour_utc = (total_start_minutes // 60) % 24
+#     minute_utc = total_start_minutes % 60
 
-    # Cron used by Azure Functions (NCRONTAB): "second minute hour day-of-month month day-of-week"
-    cron = f"0 {minute_utc} {hour_utc} {DAY_OF_MONTH} * *"
+#     # Cron used by Azure Functions (NCRONTAB): "second minute hour day-of-month month day-of-week"
+#     cron = f"0 {minute_utc} {hour_utc} {DAY_OF_MONTH} * *"
 
-    func_name = _sanitize_function_name(company)
+#     func_name = _sanitize_function_name(company)
 
-    # define the function via closure to bind current company/cron values
-    def _make_runner(company_name: str, display_name: str, cron_expr: str, fname: str):
-        # apply decorators programmatically
-        @app.function_name(name=fname)
-        @app.schedule(schedule=cron_expr, arg_name="myTimer", run_on_startup=False, use_monitor=True)
-        def _runner(myTimer: func.TimerRequest) -> None:
-            utc_timestamp = datetime.utcnow()
-            if myTimer.past_due:
-                logging.warning("⏰ Timer is past due!")
-            logging.info(f"🕒 Timer trigger for {display_name} (function: {fname}) started at: {utc_timestamp} UTC")
-            # Call the pipeline (same signature you used before)
-            process_company_pipeline(display_name, display_name, "Lead from Lead Generator Tool")
+#     # define the function via closure to bind current company/cron values
+#     def _make_runner(company_name: str, display_name: str, cron_expr: str, fname: str):
+#         # apply decorators programmatically
+#         @app.function_name(name=fname)
+#         @app.schedule(schedule=cron_expr, arg_name="myTimer", run_on_startup=False, use_monitor=True)
+#         def _runner(myTimer: func.TimerRequest) -> None:
+#             utc_timestamp = datetime.utcnow()
+#             if myTimer.past_due:
+#                 logging.warning("⏰ Timer is past due!")
+#             logging.info(f"🕒 Timer trigger for {display_name} (function: {fname}) started at: {utc_timestamp} UTC")
+#             # Call the pipeline (same signature you used before)
+#             process_company_pipeline(display_name, display_name, "Lead from Lead Generator Tool")
 
-        return _runner
+#         return _runner
 
-    # create/register the function
-    _make_runner(company_name=company, display_name=company, cron_expr=cron, fname=func_name)
+#     # create/register the function
+#     _make_runner(company_name=company, display_name=company, cron_expr=cron, fname=func_name)
 
-# Optionally: add a small log so deployment-time logs show how many functions were registered.
-logging.info(f"Registered {len(COMPANIES)} monthly timer functions (10-min gaps) starting at {START_UTC_HOUR:02d}:{START_UTC_MIN:02d} UTC (which is 09:00 IST).")
+# # Optionally: add a small log so deployment-time logs show how many functions were registered.
+# logging.info(f"Registered {len(COMPANIES)} monthly timer functions (10-min gaps) starting at {START_UTC_HOUR:02d}:{START_UTC_MIN:02d} UTC (which is 09:00 IST).")
 
 
 
@@ -211,65 +211,65 @@ logging.info(f"Registered {len(COMPANIES)} monthly timer functions (10-min gaps)
 
 
 
-# import logging
-# from datetime import datetime
-# import os
-# import azure.functions as func
-# from pipeline import process_company_pipeline
+import logging
+from datetime import datetime
+import os
+import azure.functions as func
+from pipeline import process_company_pipeline
 
-# # Read envs for scheduled targets
-# TARGET_COMPANY1 = os.getenv("TARGET_COMPANY1")
-# TARGET_COMPANY2 = os.getenv("TARGET_COMPANY2")
-# TARGET_COMPANY3 = os.getenv("TARGET_COMPANY3")
-# TARGET_COMPANY4 = os.getenv("TARGET_COMPANY4")
-# TARGET_COMPANY5 = os.getenv("TARGET_COMPANY5")
+# Read envs for scheduled targets
+TARGET_COMPANY1 = os.getenv("TARGET_COMPANY1")
+TARGET_COMPANY2 = os.getenv("TARGET_COMPANY2")
+TARGET_COMPANY3 = os.getenv("TARGET_COMPANY3")
+TARGET_COMPANY4 = os.getenv("TARGET_COMPANY4")
+TARGET_COMPANY5 = os.getenv("TARGET_COMPANY5")
 
-# app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# @app.function_name(name="ComputaCenter")
-# @app.schedule(schedule="0 30 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-# def ComputaCenter(myTimer: func.TimerRequest) -> None:
-#     utc_timestamp = datetime.utcnow()
-#     if myTimer.past_due:
-#         logging.warning("⏰ Timer is past due!")
-#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-#     process_company_pipeline(TARGET_COMPANY1, "Computacenter India", "Lead from Lead Generator Tool")
+@app.function_name(name="ComputaCenter")
+@app.schedule(schedule="0 30 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def ComputaCenter(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline(TARGET_COMPANY1, "Computacenter India", "Lead from Lead Generator Tool")
 
-# @app.function_name(name="PennyMac")
-# @app.schedule(schedule="0 35 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-# def PennyMac(myTimer: func.TimerRequest) -> None:
-#     utc_timestamp = datetime.utcnow()
-#     if myTimer.past_due:
-#         logging.warning("⏰ Timer is past due!")
-#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-#     process_company_pipeline(TARGET_COMPANY2, "PennyMac", "Lead from Lead Generator Tool")
+@app.function_name(name="PennyMac")
+@app.schedule(schedule="0 35 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def PennyMac(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline(TARGET_COMPANY2, "PennyMac", "Lead from Lead Generator Tool")
 
-# @app.function_name(name="Fountaintire")
-# @app.schedule(schedule="0 40 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-# def Fountaintire(myTimer: func.TimerRequest) -> None:
-#     utc_timestamp = datetime.utcnow()
-#     if myTimer.past_due:
-#         logging.warning("⏰ Timer is past due!")
-#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-#     process_company_pipeline(TARGET_COMPANY3, "Fountain Tire", "Lead from Lead Generator Tool")
+@app.function_name(name="Fountaintire")
+@app.schedule(schedule="0 40 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Fountaintire(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline(TARGET_COMPANY3, "Fountain Tire", "Lead from Lead Generator Tool")
 
-# @app.function_name(name="Wellpath")
-# @app.schedule(schedule="0 45 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-# def Wellpath(myTimer: func.TimerRequest) -> None:
-#     utc_timestamp = datetime.utcnow()
-#     if myTimer.past_due:
-#         logging.warning("⏰ Timer is past due!")
-#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-#     process_company_pipeline(TARGET_COMPANY4, "Wellpath", "Lead from Lead Generator Tool")
+@app.function_name(name="Wellpath")
+@app.schedule(schedule="0 45 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Wellpath(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline(TARGET_COMPANY4, "Wellpath", "Lead from Lead Generator Tool")
 
-# @app.function_name(name="TUI")
-# @app.schedule(schedule="0 50 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-# def TUI(myTimer: func.TimerRequest) -> None:
-#     utc_timestamp = datetime.utcnow()
-#     if myTimer.past_due:
-#         logging.warning("⏰ Timer is past due!")
-#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-#     process_company_pipeline(TARGET_COMPANY5, "TUI", "Lead from Lead Generator Tool")
+@app.function_name(name="TUI")
+@app.schedule(schedule="0 50 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def TUI(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline(TARGET_COMPANY5, "TUI", "Lead from Lead Generator Tool")
 
 
 
@@ -4052,3 +4052,4 @@ logging.info(f"Registered {len(COMPANIES)} monthly timer functions (10-min gaps)
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
