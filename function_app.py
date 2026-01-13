@@ -232,7 +232,7 @@ def Aareon(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="ABFRL")
-@app.schedule(schedule="0 50 3 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 3 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def ABFRL(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -242,7 +242,7 @@ def ABFRL(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Airlife")
-@app.schedule(schedule="0 0 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Airlife(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -252,7 +252,7 @@ def Airlife(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Aledade")
-@app.schedule(schedule="0 10 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aledade(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -262,7 +262,7 @@ def Aledade(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="AllTech")
-@app.schedule(schedule="0 20 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def AllTech(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -272,7 +272,7 @@ def AllTech(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Amex")
-@app.schedule(schedule="0 30 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Amex(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -282,7 +282,7 @@ def Amex(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Ammega_Group")
-@app.schedule(schedule="0 40 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Ammega_Group(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -292,7 +292,7 @@ def Ammega_Group(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Aquent")
-@app.schedule(schedule="0 50 4 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 4 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aquent(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -302,7 +302,7 @@ def Aquent(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Assa_Abloy_ANZ")
-@app.schedule(schedule="0 0 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -312,7 +312,7 @@ def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="BCBS_LA")
-@app.schedule(schedule="0 10 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def BCBS_LA(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -322,7 +322,7 @@ def BCBS_LA(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="BenBridge")
-@app.schedule(schedule="0 20 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def BenBridge(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -332,7 +332,7 @@ def BenBridge(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Berry_Global")
-@app.schedule(schedule="0 30 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Berry_Global(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -342,7 +342,7 @@ def Berry_Global(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Bluestem_Brands")
-@app.schedule(schedule="0 40 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Bluestem_Brands(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -352,7 +352,7 @@ def Bluestem_Brands(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="CMC")
-@app.schedule(schedule="0 50 5 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 5 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def CMC(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -362,7 +362,7 @@ def CMC(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Computacenter_UK")
-@app.schedule(schedule="0 0 6 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 6 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Computacenter_UK(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -372,7 +372,7 @@ def Computacenter_UK(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Cornerstone_on_Demand")
-@app.schedule(schedule="0 10 6 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 6 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Cornerstone_on_Demand(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -382,7 +382,7 @@ def Cornerstone_on_Demand(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Correct_Care_Solutions")
-@app.schedule(schedule="0 20 6 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 6 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -392,7 +392,7 @@ def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="CPL_Aromas")
-@app.schedule(schedule="0 30 6 14* *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 6 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def CPL_Aromas(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -410,6 +410,335 @@ def CPS_Solutions(myTimer: func.TimerRequest) -> None:
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
     process_company_pipeline("CPS Solutions", "CPS Solutions", "Lead from Lead Generator Tool")
 
+
+@app.function_name(name="Dominos_Pizza")
+@app.schedule(schedule="0 50 6 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Dominos_Pizza(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Dominos Pizza", "Dominos Pizza", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Epicor")
+@app.schedule(schedule="0 0 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Epicor(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Epicor", "Epicor", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Fountain_Tire")
+@app.schedule(schedule="0 10 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Fountain_Tire(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Fountain Tire", "Fountain Tire", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Global_Cloud_Xchange")
+@app.schedule(schedule="0 20 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Global_Cloud_Xchange(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Global Cloud Xchange", "Global Cloud Xchange", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Green_Mountain")
+@app.schedule(schedule="0 30 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Green_Mountain(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Green Mountain", "Green Mountain", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Hastings_Deering")
+@app.schedule(schedule="0 40 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Hastings_Deering(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Hastings Deering", "Hastings Deering", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="ICICI_Bank_Ltd")
+@app.schedule(schedule="0 50 7 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def ICICI_Bank_Ltd(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("ICICI Bank Ltd.", "ICICI Bank Ltd.", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Informatica_India")
+@app.schedule(schedule="0 0 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Informatica_India(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Informatica India", "Informatica India", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="ITS_Logistics")
+@app.schedule(schedule="0 10 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def ITS_Logistics(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("ITS Logistics", "ITS Logistics", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="J_and_J")
+@app.schedule(schedule="0 20 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def J_and_J(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("J & J", "J & J", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Kairos")
+@app.schedule(schedule="0 30 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Kairos(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Kairos", "Kairos", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Kyowa_Kirin")
+@app.schedule(schedule="0 40 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Kyowa_Kirin(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Kyowa Kirin", "Kyowa Kirin", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Lakeview_Loan_Servicing")
+@app.schedule(schedule="0 50 8 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Lakeview_Loan_Servicing(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Lakeview Loan Servicing", "Lakeview Loan Servicing", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Lenskart")
+@app.schedule(schedule="0 0 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Lenskart(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Lenskart", "Lenskart", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="LIMN_Labs")
+@app.schedule(schedule="0 10 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def LIMN_Labs(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("LIMN Labs", "LIMN Labs", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Louis_Dreyfus")
+@app.schedule(schedule="0 20 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Louis_Dreyfus(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Louis Dreyfus", "Louis Dreyfus", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Matson_Navigation_Company")
+@app.schedule(schedule="0 30 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Matson_Navigation_Company(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Matson Navigation Company", "Matson Navigation Company", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Microsoft_Global_Account")
+@app.schedule(schedule="0 40 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Microsoft_Global_Account(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Microsoft Global Account", "Microsoft Global Account", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Normet")
+@app.schedule(schedule="0 50 9 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Normet(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Normet", "Normet", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Omnicom")
+@app.schedule(schedule="0 0 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Omnicom(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Omnicom", "Omnicom", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Pennymac")
+@app.schedule(schedule="0 10 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Pennymac(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Pennymac", "Pennymac", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Republic_Bank")
+@app.schedule(schedule="0 20 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Republic_Bank(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Republic Bank", "Republic Bank", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Reynolds_Consumer_Products")
+@app.schedule(schedule="0 30 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Reynolds_Consumer_Products(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Reynolds Consumer products", "Reynolds Consumer products", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Sony")
+@app.schedule(schedule="0 40 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Sony(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Sony", "Sony", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Spotlight")
+@app.schedule(schedule="0 50 10 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Spotlight(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Spotlight", "Spotlight", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="TMS")
+@app.schedule(schedule="0 0 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def TMS(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("TMS", "TMS", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Trident_USA_Health_Service")
+@app.schedule(schedule="0 10 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Trident_USA_Health_Service(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Trident USA Health Service", "Trident USA Health Service", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Truist")
+@app.schedule(schedule="0 20 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Truist(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Truist", "Truist", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="TUI_UK")
+@app.schedule(schedule="0 30 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def TUI_UK(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("TUI UK", "TUI UK", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Ventura_Foods")
+@app.schedule(schedule="0 40 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Ventura_Foods(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Ventura Foods", "Ventura Foods", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Western_Union")
+@app.schedule(schedule="0 50 11 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Western_Union(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Western Union", "Western Union", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Widex")
+@app.schedule(schedule="0 0 12 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Widex(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Widex", "Widex", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Zurn_Industries")
+@app.schedule(schedule="0 10 12 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Zurn_Industries(myTimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.utcnow()
+    if myTimer.past_due:
+        logging.warning("⏰ Timer is past due!")
+    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+    process_company_pipeline("Zurn Industries", "Zurn Industries", "Lead from Lead Generator Tool")
 
 
 
@@ -4256,6 +4585,7 @@ def CPS_Solutions(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
 
 
