@@ -308,7 +308,7 @@ def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("Assa Abloy ANZ", "Assa Abloy ANZ", "Lead from Lead Generator Tool")
+    process_company_pipeline("Assa Abloy", "Assa Abloy ANZ", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="BCBS_LA")
@@ -318,7 +318,7 @@ def BCBS_LA(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("BCBS_LA", "BCBS_LA", "Lead from Lead Generator Tool")
+    process_company_pipeline("Blue Cross Blue Shield of Louisiana lawsuit", "BCBS_LA", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="BenBridge")
@@ -388,7 +388,7 @@ def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("Correct Care Solutions", "Correct Care Solutions", "Lead from Lead Generator Tool")
+    process_company_pipeline("Wellpath", "Correct Care Solutions", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="CPL_Aromas")
@@ -448,7 +448,7 @@ def Global_Cloud_Xchange(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("Global Cloud Xchange", "Global Cloud Xchange", "Lead from Lead Generator Tool")
+    process_company_pipeline("GCX world", "Global Cloud Xchange", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="Green_Mountain")
@@ -478,7 +478,7 @@ def ICICI_Bank_Ltd(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("ICICI Bank Ltd.", "ICICI Bank Ltd.", "Lead from Lead Generator Tool")
+    process_company_pipeline("ICICI Bank Ltd", "ICICI Bank Ltd.", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="Informatica_India")
@@ -508,7 +508,7 @@ def J_and_J(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("J & J", "J & J", "Lead from Lead Generator Tool")
+    process_company_pipeline("Johnson and Johnson", "J & J", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="Kairos")
@@ -658,7 +658,7 @@ def Spotlight(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline("Spotlight", "Spotlight", "Lead from Lead Generator Tool")
+    process_company_pipeline("Spotlight let it shine", "Spotlight", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="TMS")
@@ -739,7 +739,6 @@ def Zurn_Industries(myTimer: func.TimerRequest) -> None:
         logging.warning("⏰ Timer is past due!")
     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
     process_company_pipeline("Zurn Industries", "Zurn Industries", "Lead from Lead Generator Tool")
-
 
 
 
@@ -4585,6 +4584,7 @@ def Zurn_Industries(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
 
 
