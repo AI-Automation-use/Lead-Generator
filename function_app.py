@@ -212,13 +212,13 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 
 @app.function_name(name="TwoU")
-@app.schedule(schedule="0 30 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 9 13 * *", arg_name="myTimer", run_on_startup=True, use_monitor=True)
 def TwoU(myTimer: func.TimerRequest) -> None:
-    process_company_pipeline("TwoU", "TwoU", "Lead from Lead Generator Tool")
+    process_company_pipeline("2U", "TwoU", "Lead from Lead Generator Tool")
 
 
 @app.function_name(name="Aareon")
-@app.schedule(schedule="0 40 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 55 9 13 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aareon(myTimer: func.TimerRequest) -> None:
     process_company_pipeline("Aareon", "Aareon", "Lead from Lead Generator Tool")
 
@@ -4176,5 +4176,6 @@ def CPS_Solutions(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
 
