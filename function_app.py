@@ -203,73 +203,197 @@
 
 
 
-
-
-
-
-
-
-
-
 import logging
 from datetime import datetime
-import os
 import azure.functions as func
 from pipeline import process_company_pipeline
 
-# Read envs for scheduled targets
-TARGET_COMPANY1 = os.getenv("TARGET_COMPANY1")
-TARGET_COMPANY2 = os.getenv("TARGET_COMPANY2")
-TARGET_COMPANY3 = os.getenv("TARGET_COMPANY3")
-TARGET_COMPANY4 = os.getenv("TARGET_COMPANY4")
-TARGET_COMPANY5 = os.getenv("TARGET_COMPANY5")
-
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-@app.function_name(name="ComputaCenter")
-@app.schedule(schedule="0 30 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-def ComputaCenter(myTimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.utcnow()
-    if myTimer.past_due:
-        logging.warning("⏰ Timer is past due!")
-    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline(TARGET_COMPANY1, "Computacenter India", "Lead from Lead Generator Tool")
 
-@app.function_name(name="PennyMac")
-@app.schedule(schedule="0 35 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-def PennyMac(myTimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.utcnow()
-    if myTimer.past_due:
-        logging.warning("⏰ Timer is past due!")
-    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline(TARGET_COMPANY2, "PennyMac", "Lead from Lead Generator Tool")
+@app.function_name(name="TwoU")
+@app.schedule(schedule="0 30 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def TwoU(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("TwoU", "TwoU", "Lead from Lead Generator Tool")
 
-@app.function_name(name="Fountaintire")
-@app.schedule(schedule="0 40 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-def Fountaintire(myTimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.utcnow()
-    if myTimer.past_due:
-        logging.warning("⏰ Timer is past due!")
-    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline(TARGET_COMPANY3, "Fountain Tire", "Lead from Lead Generator Tool")
 
-@app.function_name(name="Wellpath")
-@app.schedule(schedule="0 45 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-def Wellpath(myTimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.utcnow()
-    if myTimer.past_due:
-        logging.warning("⏰ Timer is past due!")
-    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline(TARGET_COMPANY4, "Wellpath", "Lead from Lead Generator Tool")
+@app.function_name(name="Aareon")
+@app.schedule(schedule="0 40 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Aareon(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Aareon", "Aareon", "Lead from Lead Generator Tool")
 
-@app.function_name(name="TUI")
-@app.schedule(schedule="0 50 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
-def TUI(myTimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.utcnow()
-    if myTimer.past_due:
-        logging.warning("⏰ Timer is past due!")
-    logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
-    process_company_pipeline(TARGET_COMPANY5, "TUI", "Lead from Lead Generator Tool")
+
+@app.function_name(name="ABFRL")
+@app.schedule(schedule="0 50 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def ABFRL(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("ABFRL", "ABFRL", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Airlife")
+@app.schedule(schedule="0 0 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Airlife(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Airlife", "Airlife", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Aledade")
+@app.schedule(schedule="0 10 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Aledade(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Aledade", "Aledade", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="AllTech")
+@app.schedule(schedule="0 20 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def AllTech(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("AllTech", "AllTech", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Amex")
+@app.schedule(schedule="0 30 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Amex(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Amex", "Amex", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Ammega_Group")
+@app.schedule(schedule="0 40 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Ammega_Group(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Ammega Group", "Ammega Group", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Aquent")
+@app.schedule(schedule="0 50 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Aquent(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Aquent", "Aquent", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Assa_Abloy_ANZ")
+@app.schedule(schedule="0 0 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Assa Abloy ANZ", "Assa Abloy ANZ", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="BCBS_LA")
+@app.schedule(schedule="0 10 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def BCBS_LA(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("BCBS_LA", "BCBS_LA", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="BenBridge")
+@app.schedule(schedule="0 20 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def BenBridge(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("BenBridge", "BenBridge", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Berry_Global")
+@app.schedule(schedule="0 30 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Berry_Global(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Berry Global", "Berry Global", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Bluestem_Brands")
+@app.schedule(schedule="0 40 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Bluestem_Brands(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Bluestem Brands", "Bluestem Brands", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="CMC")
+@app.schedule(schedule="0 50 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def CMC(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("CMC", "CMC", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Computacenter_UK")
+@app.schedule(schedule="0 0 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Computacenter_UK(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Computacenter UK", "Computacenter UK", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Cornerstone_on_Demand")
+@app.schedule(schedule="0 10 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Cornerstone_on_Demand(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Cornerstone on Demand", "Cornerstone on Demand", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="Correct_Care_Solutions")
+@app.schedule(schedule="0 20 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("Correct Care Solutions", "Correct Care Solutions", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="CPL_Aromas")
+@app.schedule(schedule="0 30 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def CPL_Aromas(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("CPL Aromas", "CPL Aromas", "Lead from Lead Generator Tool")
+
+
+@app.function_name(name="CPS_Solutions")
+@app.schedule(schedule="0 40 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+def CPS_Solutions(myTimer: func.TimerRequest) -> None:
+    process_company_pipeline("CPS Solutions", "CPS Solutions", "Lead from Lead Generator Tool")
+
+
+
+
+
+# This was uncommented before 13/01
+# import logging
+# from datetime import datetime
+# import os
+# import azure.functions as func
+# from pipeline import process_company_pipeline
+
+# # Read envs for scheduled targets
+# TARGET_COMPANY1 = os.getenv("TARGET_COMPANY1")
+# TARGET_COMPANY2 = os.getenv("TARGET_COMPANY2")
+# TARGET_COMPANY3 = os.getenv("TARGET_COMPANY3")
+# TARGET_COMPANY4 = os.getenv("TARGET_COMPANY4")
+# TARGET_COMPANY5 = os.getenv("TARGET_COMPANY5")
+
+# app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+# @app.function_name(name="ComputaCenter")
+# @app.schedule(schedule="0 30 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+# def ComputaCenter(myTimer: func.TimerRequest) -> None:
+#     utc_timestamp = datetime.utcnow()
+#     if myTimer.past_due:
+#         logging.warning("⏰ Timer is past due!")
+#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+#     process_company_pipeline(TARGET_COMPANY1, "Computacenter India", "Lead from Lead Generator Tool")
+
+# @app.function_name(name="PennyMac")
+# @app.schedule(schedule="0 35 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+# def PennyMac(myTimer: func.TimerRequest) -> None:
+#     utc_timestamp = datetime.utcnow()
+#     if myTimer.past_due:
+#         logging.warning("⏰ Timer is past due!")
+#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+#     process_company_pipeline(TARGET_COMPANY2, "PennyMac", "Lead from Lead Generator Tool")
+
+# @app.function_name(name="Fountaintire")
+# @app.schedule(schedule="0 40 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+# def Fountaintire(myTimer: func.TimerRequest) -> None:
+#     utc_timestamp = datetime.utcnow()
+#     if myTimer.past_due:
+#         logging.warning("⏰ Timer is past due!")
+#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+#     process_company_pipeline(TARGET_COMPANY3, "Fountain Tire", "Lead from Lead Generator Tool")
+
+# @app.function_name(name="Wellpath")
+# @app.schedule(schedule="0 45 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+# def Wellpath(myTimer: func.TimerRequest) -> None:
+#     utc_timestamp = datetime.utcnow()
+#     if myTimer.past_due:
+#         logging.warning("⏰ Timer is past due!")
+#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+#     process_company_pipeline(TARGET_COMPANY4, "Wellpath", "Lead from Lead Generator Tool")
+
+# @app.function_name(name="TUI")
+# @app.schedule(schedule="0 50 5 2,5,8,11,14,17,20,23,26,29 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+# def TUI(myTimer: func.TimerRequest) -> None:
+#     utc_timestamp = datetime.utcnow()
+#     if myTimer.past_due:
+#         logging.warning("⏰ Timer is past due!")
+#     logging.info(f"🕒 Python timer trigger function started at: {utc_timestamp}")
+#     process_company_pipeline(TARGET_COMPANY5, "TUI", "Lead from Lead Generator Tool")
 
 
 
@@ -4052,4 +4176,5 @@ def TUI(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
