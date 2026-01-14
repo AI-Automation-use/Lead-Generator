@@ -514,7 +514,7 @@ import os
 import re
 
 from utils import normalize_areas_string, markdown_bold_to_html
-from storage import get_identified_leads_df, add_lead_to_excel
+from storage import get_identified_leads_df, add_lead_to_excel, get_saleshead_email_by_customer
 from scraping import get_company_website, scrape_website, scrape_google_news
 from ai import check_potential_lead, extract_lead_details, check_potential_lead_by_area, extract_single_lead_details, extract_and_validate_contacts_from_analysis, format_contacts_with_openai
 from docs import create_lead_docx, send_email_app_only
@@ -645,12 +645,17 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
                             + "".join(f"<p>{markdown_bold_to_html(line)}</p>" for line in area_details.splitlines())
                             + "<p>See attachments for full reports.</p></body></html>"
                         )
+                        to_email = get_saleshead_email_by_customer(my_account_name)
+
+                        if not to_email:
+                            logging.warning(f"No email found for account: {my_account_name}. Skipping email.")
+                            continue
                         sent = send_email_app_only(
                             sender_email,
-                            ["vishnu.kg@sonata-software.com"],
+                            [to_email],
                             f"New Lead: {company} - {lead_area}",
                             email_body,
-                            cc_emails=["vishnu.kg@sonata-software.com"],
+                            bcc_emails=["vishnu.kg@sonata-software.com"],
                             attachments=[(lead_doc_name, lead_doc_stream)],
                         )
                         # if sent:
@@ -766,3 +771,4 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
 
 
     logging.info("✅ Lead generation cycle completed.")
+
