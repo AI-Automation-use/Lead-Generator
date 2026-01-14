@@ -666,55 +666,55 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
             else:
                 logging.info(f"🚫 No lead indication found for area '{lead_area}'; skipping email and API steps.")
             
-            filtered_contacts_text, contact_flag = extract_and_validate_contacts_from_analysis(area_analysis, lead_area)
-            logging.info(f"Contact extraction result for '{lead_area}': flag={contact_flag}")
+            # filtered_contacts_text, contact_flag = extract_and_validate_contacts_from_analysis(area_analysis, lead_area)
+            # logging.info(f"Contact extraction result for '{lead_area}': flag={contact_flag}")
     
-            if contact_flag.strip().lower() == "yes":
-                contacts_list = format_contacts_with_openai(filtered_contacts_text)
-                if contacts_list:
-                    try:
-                        sender_email = "So_App_Support@sonata-software.com"
+            # if contact_flag.strip().lower() == "yes":
+            #     contacts_list = format_contacts_with_openai(filtered_contacts_text)
+            #     if contacts_list:
+            #         try:
+            #             sender_email = "So_App_Support@sonata-software.com"
     
-                        # Build HTML summary table for contacts
-                        contacts_html = "<p><strong>Filtered Contacts (relevant to lead area):</strong></p>"
-                        contacts_html += "<table border='0' cellpadding='4' cellspacing='0'>"
-                        contacts_html += "<tr><th>Name</th><th>Title</th><th>Contact</th><th>Source</th><th>URL</th></tr>"
-                        for c in contacts_list:
-                            contacts_html += "<tr>"
-                            contacts_html += f"<td>{c.get('name') or ''}</td>"
-                            contacts_html += f"<td>{c.get('title') or ''}</td>"
-                            contacts_html += f"<td>{c.get('contact') or ''}</td>"
-                            contacts_html += f"<td>{c.get('source') or ''}</td>"
-                            contacts_html += f"<td>{c.get('source_url') or ''}</td>"
-                            contacts_html += "</tr>"
-                        contacts_html += "</table>"
+            #             # Build HTML summary table for contacts
+            #             contacts_html = "<p><strong>Filtered Contacts (relevant to lead area):</strong></p>"
+            #             contacts_html += "<table border='0' cellpadding='4' cellspacing='0'>"
+            #             contacts_html += "<tr><th>Name</th><th>Title</th><th>Contact</th><th>Source</th><th>URL</th></tr>"
+            #             for c in contacts_list:
+            #                 contacts_html += "<tr>"
+            #                 contacts_html += f"<td>{c.get('name') or ''}</td>"
+            #                 contacts_html += f"<td>{c.get('title') or ''}</td>"
+            #                 contacts_html += f"<td>{c.get('contact') or ''}</td>"
+            #                 contacts_html += f"<td>{c.get('source') or ''}</td>"
+            #                 contacts_html += f"<td>{c.get('source_url') or ''}</td>"
+            #                 contacts_html += "</tr>"
+            #             contacts_html += "</table>"
     
-                        # Contact-only email (no attachments)
-                        email_body_contacts = (
-                            f"<html><body><p>Validated contact details extracted for "
-                            f"<strong>{company}</strong> - <strong>{lead_area}</strong>:</p>"
-                            + contacts_html
-                            + "</body></html>"
-                        )
+            #             # Contact-only email (no attachments)
+            #             email_body_contacts = (
+            #                 f"<html><body><p>Validated contact details extracted for "
+            #                 f"<strong>{company}</strong> - <strong>{lead_area}</strong>:</p>"
+            #                 + contacts_html
+            #                 + "</body></html>"
+            #             )
     
-                        sent_contacts = send_email_app_only(
-                            sender_email,
-                            ["vishnu.kg@sonata-software.com"],
-                            f"Contact Details: {company} - {lead_area}",
-                            email_body_contacts,
-                            cc_emails=["vishnu.kg@sonata-software.com"],
-                        )
-                        if sent_contacts:
-                            logging.info(f"✅ Contact email sent for area: '{lead_area}'.")
-                        else:
-                            logging.warning(f"⚠️ Contact email NOT sent for area: '{lead_area}'.")
+            #             sent_contacts = send_email_app_only(
+            #                 sender_email,
+            #                 ["vishnu.kg@sonata-software.com"],
+            #                 f"Contact Details: {company} - {lead_area}",
+            #                 email_body_contacts,
+            #                 cc_emails=["vishnu.kg@sonata-software.com"],
+            #             )
+            #             if sent_contacts:
+            #                 logging.info(f"✅ Contact email sent for area: '{lead_area}'.")
+            #             else:
+            #                 logging.warning(f"⚠️ Contact email NOT sent for area: '{lead_area}'.")
     
-                    except Exception as e:
-                        logging.error(f"❌ Error sending contact email for area '{lead_area}': {e}")
-                else:
-                    logging.info(f"🚫 Contacts formatting/parsing returned empty for area '{lead_area}'. Skipping contacts email.")
-            else:
-                logging.info(f"🚫 No contact details found for area '{lead_area}'; skipping contacts email.")
+            #         except Exception as e:
+            #             logging.error(f"❌ Error sending contact email for area '{lead_area}': {e}")
+            #     else:
+            #         logging.info(f"🚫 Contacts formatting/parsing returned empty for area '{lead_area}'. Skipping contacts email.")
+            # else:
+            #     logging.info(f"🚫 No contact details found for area '{lead_area}'; skipping contacts email.")
 
             # filtered_contacts_text, contact_flag = extract_and_validate_contacts_from_analysis(area_analysis, lead_area)
             # logging.info(filtered_contacts_text, contact_flag)
@@ -763,5 +763,6 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
             #     logging.info(f"🚫 No Conatact Details Found '{lead_area}'; skipping email and API steps.")
         except Exception as e:
             logging.error(f"❌ Error processing lead area '{lead_area}': {e}")
+
 
     logging.info("✅ Lead generation cycle completed.")
