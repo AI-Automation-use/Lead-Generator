@@ -315,7 +315,8 @@ def scrape_google_news(company_name, pages=1):
                     continue
         browser.close()
     return results
-    
+
+#works in vs code but not when deployed
 # def scrape_google_news(company_name, pages=1):
 #     query = quote(str(company_name))
 #     results = []
@@ -370,8 +371,7 @@ def scrape_google_news(company_name, pages=1):
 
 def scrape_website(website):
     with sync_playwright() as p:
-        BROWSER_EXECUTABLE_PATH = r"C:\Users\Vishnu.Kg\OneDrive - Sonata Software\Documents\GENAI PROJECT\Lead Generator Deploy\.venv\chromium_headless_shell-1181\chrome-win\headless_shell.exe"
-        browser = p.chromium.launch(headless=True, executable_path= BROWSER_EXECUTABLE_PATH)
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
             ignore_https_errors=True
@@ -397,6 +397,37 @@ def scrape_website(website):
         full_content += f"\n\n**Source:** {website}"
         browser.close()
         return full_content, website
+        
+#works in vs code but not when deployed
+# def scrape_website(website):
+#     with sync_playwright() as p:
+#         BROWSER_EXECUTABLE_PATH = r"C:\Users\Vishnu.Kg\OneDrive - Sonata Software\Documents\GENAI PROJECT\Lead Generator Deploy\.venv\chromium_headless_shell-1181\chrome-win\headless_shell.exe"
+#         browser = p.chromium.launch(headless=True, executable_path= BROWSER_EXECUTABLE_PATH)
+#         context = browser.new_context(
+#             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+#             ignore_https_errors=True
+#         )
+#         page = context.new_page()
+#         page.set_extra_http_headers({
+#             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+#             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+#             "Accept-Language": "en-US,en;q=0.9",
+#             "Connection": "keep-alive",
+#         })
+#         page.goto(website, wait_until="load", timeout=60000)
+#         page_content = page.content()
+#         soup = BeautifulSoup(page_content, 'html.parser')
+#         title = soup.title.string if soup.title else "No title found"
+#         paragraphs = soup.find_all('p')
+#         paragraphs_content = '\n'.join([para.get_text() for para in paragraphs])
+#         headings = soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+#         headings_content = '\n'.join([heading.get_text() for heading in headings])
+#         full_content = f"**Title:** {title}\n\n"
+#         full_content += f"**Headings:**\n{headings_content}\n\n"
+#         full_content += f"**Paragraphs:**\n{paragraphs_content}\n\n"
+#         full_content += f"\n\n**Source:** {website}"
+#         browser.close()
+#         return full_content, website
 
 # -----------------------------
 # Search helpers
