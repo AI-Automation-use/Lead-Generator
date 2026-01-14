@@ -244,4 +244,45 @@ def add_lead_to_excel(company_name: str, lead_areas: str) -> Set[str]:
         logging.info(f"New company '{company_name}' added as a lead with areas: {normalized_incoming_areas_str}.")
         truly_new_areas = incoming_areas_set
 
+
     return truly_new_areas
+
+def get_saleshead_email_by_customer(customer_name: str) -> Optional[str]:
+    """
+    Fetch SalesHead Email from Excel in Blob where Customer == customer_name
+    """
+    try:
+        blob_service_client = get_blob_service_client()
+        container_name = "potentiallist"
+        blob_name = "Company_SalesHead_DeliverHeadDirector_SalesRep_EmailList.xlsx"
+
+        excel_data = download_excel_from_blob(blob_service_client, container_name, blob_name)
+
+        if not excel_data:
+            logging.error("Could not download email mapping Excel.")
+            return None
+
+        df = pd.read_excel(excel_data)
+
+        # Normalize for safe comparison
+        df["Customer"] = df["Customer"].astype(str).str.strip().str.lower()
+
+        customer_name_cleaned = customer_name.strip().lower()
+
+        matched_row = df[df["Customer"] == customer_name_cleaned]
+
+        if matched_row.empty:
+            logging.warning(f"No matching customer found: {customer_name}")
+            return None
+
+        email = matched_row.iloc[0]["SalesHead Email"]
+
+        if pd.isna(email) or not str(email).strip():
+            logging.warning(f"No SalesHead Email found for: {customer_name}")
+            return None
+
+        return str(email).strip()
+
+    except Exception as e:
+        logging.error(f"Error fetching SalesHead email: {e}")
+        return None
