@@ -275,22 +275,11 @@ def fetch_full_article_text_with_playwright(page, url: str) -> str:
         logging.error(f"Error fetching full article from {url}: {e}")
         return "⚠️ Full article not available."
 
-
 def scrape_google_news(company_name, pages=1):
-    query = quote(str(company_name))
+    query = quote(company_name)
     results = []
     with sync_playwright() as p:
-        try:
-            # First, try to launch without specifying a path (ideal)
-            browser = p.chromium.launch(headless=True)
-        except Exception as e:
-            # If that fails, assume local testing and try a common path
-            # NOTE: You may need to adjust this path if your installation is different
-            local_executable_path = "C:\\Users\\Vishnu.Kg\\OneDrive - Sonata Software\\Documents\\GENAI PROJECT\\Lead Generator Deploy\\.venv\\chromium_headless_shell-1181\\chrome-win\\headless_shell.exe"
-            if sys.platform == "win32":
-                browser = p.chromium.launch(headless=True, executable_path=local_executable_path)
-            else:
-                raise e # Re-raise if not on Windows
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context(user_agent=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
             "(KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
@@ -326,6 +315,57 @@ def scrape_google_news(company_name, pages=1):
                     continue
         browser.close()
     return results
+    
+# def scrape_google_news(company_name, pages=1):
+#     query = quote(str(company_name))
+#     results = []
+#     with sync_playwright() as p:
+#         try:
+#             # First, try to launch without specifying a path (ideal)
+#             browser = p.chromium.launch(headless=True)
+#         except Exception as e:
+#             # If that fails, assume local testing and try a common path
+#             # NOTE: You may need to adjust this path if your installation is different
+#             local_executable_path = "C:\\Users\\Vishnu.Kg\\OneDrive - Sonata Software\\Documents\\GENAI PROJECT\\Lead Generator Deploy\\.venv\\chromium_headless_shell-1181\\chrome-win\\headless_shell.exe"
+#             if sys.platform == "win32":
+#                 browser = p.chromium.launch(headless=True, executable_path=local_executable_path)
+#             else:
+#                 raise e # Re-raise if not on Windows
+#         context = browser.new_context(user_agent=(
+#             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+#             "(KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+#         ))
+#         page = context.new_page()
+#         for i in range(pages):
+#             start = i * 10
+#             url = f"https://www.google.com/search?q={query}&tbm=nws&start={start}"
+#             page.goto(url, wait_until="load", timeout=60000)
+#             soup = BeautifulSoup(page.content(), "html.parser")
+#             for result in soup.select("div.SoaBEf"):
+#                 try:
+#                     a_tag = result.find("a", href=True)
+#                     link = a_tag["href"] if a_tag else ""
+#                     title_el = a_tag.select_one("div.n0jPhd.ynAwRc.MBeuO.nDgy9d")
+#                     description_el = a_tag.select_one("div.GI74Re.nDgy9d")
+#                     publisher_el = a_tag.select_one("span.xQ82C.e8fRJf")
+#                     date_el = result.select_one("span[class]:not([class*='xQ82C'])")
+#                     title = title_el.get_text(strip=True) if title_el else ""
+#                     short_description = description_el.get_text(strip=True) if description_el else ""
+#                     publisher = publisher_el.get_text(strip=True) if publisher_el else ""
+#                     published_on = date_el.get_text(strip=True) if date_el else ""
+#                     full_article = fetch_full_article_text_with_playwright(page, link)
+#                     if title and link and not any(r["url"] == link for r in results):
+#                         results.append({
+#                             "title": title,
+#                             "publisher": publisher,
+#                             "published_on": published_on,
+#                             "description": full_article or short_description,
+#                             "url": link
+#                         })
+#                 except Exception:
+#                     continue
+#         browser.close()
+#     return results
 
 
 def scrape_website(website):
