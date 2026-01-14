@@ -655,7 +655,7 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
                             [to_email],
                             f"New Lead: {company} - {lead_area}",
                             email_body,
-                            bcc_emails=["vishnu.kg@sonata-software.com"],
+                            bcc_emails=["vishnu.kg@sonata-software.com","vijay.t@sonata-software.com"],
                             attachments=[(lead_doc_name, lead_doc_stream)],
                         )
                         # if sent:
@@ -771,4 +771,5 @@ def process_company_pipeline(company: str, my_account_name: str, my_lead_name: s
 
 
     logging.info("✅ Lead generation cycle completed.")
+
 
