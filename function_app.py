@@ -212,7 +212,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 
 @app.function_name(name="TwoU")
-@app.schedule(schedule="0 30 3 14 * *", arg_name="myTimer", run_on_startup=Flase, use_monitor=True)
+@app.schedule(schedule="0 30 3 14 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def TwoU(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -4584,6 +4584,7 @@ def Zurn_Industries(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
 
 
