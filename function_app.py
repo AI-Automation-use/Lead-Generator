@@ -212,7 +212,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 
 @app.function_name(name="TwoU")
-@app.schedule(schedule="0 30 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 3 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def TwoU(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -222,7 +222,7 @@ def TwoU(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Aareon")
-@app.schedule(schedule="0 40 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 3 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aareon(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -232,7 +232,7 @@ def Aareon(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="ABFRL")
-@app.schedule(schedule="0 50 3 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 3 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def ABFRL(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -242,7 +242,7 @@ def ABFRL(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Airlife")
-@app.schedule(schedule="0 0 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Airlife(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -252,7 +252,7 @@ def Airlife(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Aledade")
-@app.schedule(schedule="0 10 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aledade(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -262,7 +262,7 @@ def Aledade(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="AllTech")
-@app.schedule(schedule="0 20 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def AllTech(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -272,7 +272,7 @@ def AllTech(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Amex")
-@app.schedule(schedule="0 30 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Amex(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -282,7 +282,7 @@ def Amex(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Ammega_Group")
-@app.schedule(schedule="0 40 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Ammega_Group(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -292,7 +292,7 @@ def Ammega_Group(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Aquent")
-@app.schedule(schedule="0 50 4 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 4 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Aquent(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -302,7 +302,7 @@ def Aquent(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Assa_Abloy_ANZ")
-@app.schedule(schedule="0 0 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -312,7 +312,7 @@ def Assa_Abloy_ANZ(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="BCBS_LA")
-@app.schedule(schedule="0 10 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def BCBS_LA(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -322,7 +322,7 @@ def BCBS_LA(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="BenBridge")
-@app.schedule(schedule="0 20 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def BenBridge(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -332,7 +332,7 @@ def BenBridge(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Berry_Global")
-@app.schedule(schedule="0 30 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Berry_Global(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -342,7 +342,7 @@ def Berry_Global(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Bluestem_Brands")
-@app.schedule(schedule="0 40 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Bluestem_Brands(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -352,7 +352,7 @@ def Bluestem_Brands(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="CMC")
-@app.schedule(schedule="0 50 5 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 5 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def CMC(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -362,7 +362,7 @@ def CMC(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Computacenter_UK")
-@app.schedule(schedule="0 0 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Computacenter_UK(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -372,7 +372,7 @@ def Computacenter_UK(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Cornerstone_on_Demand")
-@app.schedule(schedule="0 10 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Cornerstone_on_Demand(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -382,7 +382,7 @@ def Cornerstone_on_Demand(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Correct_Care_Solutions")
-@app.schedule(schedule="0 20 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -392,7 +392,7 @@ def Correct_Care_Solutions(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="CPL_Aromas")
-@app.schedule(schedule="0 30 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def CPL_Aromas(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -402,7 +402,7 @@ def CPL_Aromas(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="CPS_Solutions")
-@app.schedule(schedule="0 40 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def CPS_Solutions(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -412,7 +412,7 @@ def CPS_Solutions(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Dominos_Pizza")
-@app.schedule(schedule="0 50 6 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 6 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Dominos_Pizza(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -422,7 +422,7 @@ def Dominos_Pizza(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Epicor")
-@app.schedule(schedule="0 0 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Epicor(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -432,7 +432,7 @@ def Epicor(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Fountain_Tire")
-@app.schedule(schedule="0 10 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Fountain_Tire(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -442,7 +442,7 @@ def Fountain_Tire(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Global_Cloud_Xchange")
-@app.schedule(schedule="0 20 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Global_Cloud_Xchange(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -452,7 +452,7 @@ def Global_Cloud_Xchange(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Green_Mountain")
-@app.schedule(schedule="0 30 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Green_Mountain(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -462,7 +462,7 @@ def Green_Mountain(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Hastings_Deering")
-@app.schedule(schedule="0 40 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Hastings_Deering(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -472,7 +472,7 @@ def Hastings_Deering(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="ICICI_Bank_Ltd")
-@app.schedule(schedule="0 50 7 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 7 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def ICICI_Bank_Ltd(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -482,7 +482,7 @@ def ICICI_Bank_Ltd(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Informatica_India")
-@app.schedule(schedule="0 0 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Informatica_India(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -492,7 +492,7 @@ def Informatica_India(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="ITS_Logistics")
-@app.schedule(schedule="0 10 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def ITS_Logistics(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -502,7 +502,7 @@ def ITS_Logistics(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="J_and_J")
-@app.schedule(schedule="0 20 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def J_and_J(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -512,7 +512,7 @@ def J_and_J(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Kairos")
-@app.schedule(schedule="0 30 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Kairos(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -522,7 +522,7 @@ def Kairos(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Kyowa_Kirin")
-@app.schedule(schedule="0 40 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Kyowa_Kirin(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -532,7 +532,7 @@ def Kyowa_Kirin(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Lakeview_Loan_Servicing")
-@app.schedule(schedule="0 50 8 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 8 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Lakeview_Loan_Servicing(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -542,7 +542,7 @@ def Lakeview_Loan_Servicing(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Lenskart")
-@app.schedule(schedule="0 0 9 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 9 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Lenskart(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -552,7 +552,7 @@ def Lenskart(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="LIMN_Labs")
-@app.schedule(schedule="0 10 9 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 9 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def LIMN_Labs(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -562,7 +562,7 @@ def LIMN_Labs(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Louis_Dreyfus")
-@app.schedule(schedule="0 20 9 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 9 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Louis_Dreyfus(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -572,7 +572,7 @@ def Louis_Dreyfus(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Matson_Navigation_Company")
-@app.schedule(schedule="0 30 9 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 9 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Matson_Navigation_Company(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -582,7 +582,7 @@ def Matson_Navigation_Company(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Normet")
-@app.schedule(schedule="0 50 9 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 9 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Normet(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -592,7 +592,7 @@ def Normet(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Omnicom")
-@app.schedule(schedule="0 0 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Omnicom(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -602,7 +602,7 @@ def Omnicom(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Pennymac")
-@app.schedule(schedule="0 10 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Pennymac(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -612,7 +612,7 @@ def Pennymac(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Republic_Bank")
-@app.schedule(schedule="0 20 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Republic_Bank(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -622,7 +622,7 @@ def Republic_Bank(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Reynolds_Consumer_Products")
-@app.schedule(schedule="0 30 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Reynolds_Consumer_Products(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -632,7 +632,7 @@ def Reynolds_Consumer_Products(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Sony")
-@app.schedule(schedule="0 40 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Sony(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -642,7 +642,7 @@ def Sony(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Spotlight")
-@app.schedule(schedule="0 50 10 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 10 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Spotlight(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -652,7 +652,7 @@ def Spotlight(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="TMS")
-@app.schedule(schedule="0 0 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def TMS(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -662,7 +662,7 @@ def TMS(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Trident_USA_Health_Service")
-@app.schedule(schedule="0 10 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Trident_USA_Health_Service(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -672,7 +672,7 @@ def Trident_USA_Health_Service(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Truist")
-@app.schedule(schedule="0 20 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 20 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Truist(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -682,7 +682,7 @@ def Truist(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="TUI_UK")
-@app.schedule(schedule="0 30 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 30 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def TUI_UK(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -692,7 +692,7 @@ def TUI_UK(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Ventura_Foods")
-@app.schedule(schedule="0 40 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 40 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Ventura_Foods(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -702,7 +702,7 @@ def Ventura_Foods(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Western_Union")
-@app.schedule(schedule="0 50 11 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 50 11 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Western_Union(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -712,7 +712,7 @@ def Western_Union(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Widex")
-@app.schedule(schedule="0 0 12 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 12 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Widex(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -722,7 +722,7 @@ def Widex(myTimer: func.TimerRequest) -> None:
 
 
 @app.function_name(name="Zurn_Industries")
-@app.schedule(schedule="0 10 12 1 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 10 12 3 * *", arg_name="myTimer", run_on_startup=False, use_monitor=True)
 def Zurn_Industries(myTimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.utcnow()
     if myTimer.past_due:
@@ -4574,6 +4574,7 @@ def Zurn_Industries(myTimer: func.TimerRequest) -> None:
 #         logging.info(f"🚫 '{company}' is not identified as a potential lead; skipping all downstream steps.") 
 
 #     logging.info("✅ Lead generation cycle completed.")
+
 
 
 
